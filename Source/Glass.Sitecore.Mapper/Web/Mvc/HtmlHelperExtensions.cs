@@ -28,6 +28,16 @@ namespace Glass.Sitecore.Mapper.Web.Mvc
             return BeginEditFrame(htmlHelper, dataSource.ToString(), buttons.ToString());
         }
 
+        public static MvcEditFrame BeginEditFrame(this HtmlHelper htmlHelper, ID dataSource, string buttons)
+        {
+            return BeginEditFrame(htmlHelper, dataSource.ToString(), buttons);
+        }
+
+        public static MvcEditFrame BeginEditFrame(this HtmlHelper htmlHelper, string dataSource, ID buttons)
+        {
+            return BeginEditFrame(htmlHelper, dataSource, buttons.ToString());
+        }
+
         public static MvcEditFrame BeginEditFrame(this HtmlHelper htmlHelper, string dataSource, string buttons)
         {
             var editFrame = new EditFrame()
