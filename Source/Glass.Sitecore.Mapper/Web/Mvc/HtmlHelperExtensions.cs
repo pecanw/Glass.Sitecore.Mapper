@@ -41,11 +41,16 @@ namespace Glass.Sitecore.Mapper.Web.Mvc
         public static MvcEditFrame BeginEditFrame(this HtmlHelper htmlHelper, string dataSource, string buttons)
         {
             var editFrame = new EditFrame()
-            {
-                Buttons = buttons,
-                DataSource = dataSource
-            };
+                {
+                    Buttons = buttons,
+                    DataSource = dataSource
+                };
 
+            return BeginEditFrame(htmlHelper, editFrame);
+        }
+
+        public static MvcEditFrame BeginEditFrame(this HtmlHelper htmlHelper, EditFrame editFrame)
+        {
             var writter = new HtmlTextWriter(htmlHelper.ViewContext.Writer);
             editFrame.RenderFirstPart(writter);
 
